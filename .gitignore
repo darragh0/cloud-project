@@ -13,4 +13,4 @@ __pycache__/
 .DS_Store
 
 # Application
-app/application/database/database.db
+application/database/database.db

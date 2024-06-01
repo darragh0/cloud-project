@@ -1,0 +1,65 @@
+{% extends "html/base/../base/base.html" %}
+
+{% block links %}
+    <link rel="stylesheet" href="../../../static/css/admin-users-info.css">
+{% endblock %}
+
+{% block header %}
+
+    <header>
+        <h1>All User Information</h1>
+    </header>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="user-info-main">
+        <h2>Select Option:</h2>
+        <div class="top">
+            <a href="/admin/users/info?selected=student">Students</a>
+            <a href="/admin/users/info?selected=coordinator">Coordinators</a>
+            <a href="/admin/users/info?selected=all">All Users</a>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Type</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Created</th>
+                        <th scope="col">Updated</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if user_rows %}
+                        {% for user in user_rows %}
+                            <tr>
+                                <th scope="row">{{ user["user_id"] }}</th>
+                                <td>{{ user["username"] }}</td>
+                                <td>{{ user["user_type"] }}</td>
+                                <td>{{ user["first_name"] }}</td>
+                                <td>{{ user["last_name"] }}</td>
+                                <td>{{ user["age"] }}</td>
+                                <td>{{ user["gender"] }}</td>
+                                <td>{{ user["email"] }}</td>
+                                <td>{{ user["phone"] }}</td>
+                                <td>{{ user["created"] }}</td>
+                                <td>{{ user["updated"] }}</td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

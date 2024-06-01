@@ -14,7 +14,12 @@ It is not recommended that you run this python file directly.
 Follow the instructions in app/README.md instead.
 """
 
-from application import app, db_prompt
+from application import app, initialise_db
+from sqlite3 import OperationalError
 
 _ = app
-db_prompt()
+
+try:
+    initialise_db(populate=True)
+except OperationalError:
+    pass

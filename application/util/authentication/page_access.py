@@ -48,7 +48,7 @@ def validate_access_perms(user_type: str, endpoint: str) -> str | None:
 
     if "user" not in session:
         error(errtype=Error.RESTRICTED_PAGE_LOGGED_OUT, endpoint=endpoint)
-        return render_template("html/misc/home.html")
+        return render_template("misc/home.html")
 
     current_user_type: str = session["user-type"]
 

@@ -5,9 +5,8 @@ from pathlib import Path
 from flask import g
 
 
-ROOT_DIR: Path = Path(__file__).parents[4]
-DB_DIR: Path = ROOT_DIR / "app" / "application" / "database"
-
+ROOT_DIR: Path = Path(__file__).parents[3]
+DB_DIR: Path = ROOT_DIR / "application" / "database"
 DB_PATH: Path = DB_DIR / "database.db"
 SCHEMA_PATH: Path = DB_DIR / "schema.sql"
 POPULATE_PATH: Path = DB_DIR / "populate.sql"

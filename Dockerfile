@@ -3,16 +3,12 @@
 FROM python:3.12.2-alpine
 
 WORKDIR /flask-app
-
-EXPOSE 5000
-ENV FLASK_APP=app.py
-
 COPY . /flask-app
+
+EXPOSE 80
 
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-EXPOSE 5000
-
 ENTRYPOINT ["flask"]
-CMD ["run", "--host", "0.0.0.0"]
+CMD ["run", "--host", "0.0.0.0", "--port", "80"]
